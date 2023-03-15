@@ -1,30 +1,30 @@
 
-const eqArrays = function(arr1, arr2) {
-  // console.log("arr1.length: ", arr1.length);
-  if (arr1.length !== arr2.length) {
-    // console.log("length difference");
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      // console.log("arr1[i]", arr1[i]);
-      return false;
-    }
-  }
-  return true;
-};
+// const eqArrays = function(arr1, arr2) {
+//   // console.log("arr1.length: ", arr1.length);
+//   if (arr1.length !== arr2.length) {
+//     // console.log("length difference");
+//     return false;
+//   }
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr1[i] !== arr2[i]) {
+//       // console.log("arr1[i]", arr1[i]);
+//       return false;
+//     }
+//   }
+//   return true;
+// };
 
 
-const assertEquals = function(actual, expected) {
-  let trueResult = `✅ Assertion Passed: ${actual}  === ${expected}`;
-  let falseResult = `🛑 Assertion Failed: ${actual} !== ${expected}`;
-  if (actual === expected) {
-    console.log(trueResult);
-  } else {
-    console.log(falseResult);
-  }
-  return;
-};
+// const assertEquals = function(actual, expected) {
+//   let trueResult = `✅ Assertion Passed: ${actual}  === ${expected}`;
+//   let falseResult = `🛑 Assertion Failed: ${actual} !== ${expected}`;
+//   if (actual === expected) {
+//     console.log(trueResult);
+//   } else {
+//     console.log(falseResult);
+//   }
+//   return;
+// };
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
@@ -83,17 +83,4 @@ const eqObjects = function(object1, object2) {
   return result;
 };
 
-// TEST CODE
-// const shirtObject = { color: "red", size: "medium" };
-// const anotherShirtObject= { size: "medium", color: "red" };
-// eqObjects(shirtObject , anotherShirtObject); // => true
-// assertEquals(eqObjects(shirtObject , anotherShirtObject), true);
-
-// const longSleeveShirtObject= { size: "medium", color: "red", sleeveLength: "long" };
-// eqObjects(shirtObject , longSleeveShirtObject); // => false
-// assertEquals(eqObjects(shirtObject , longSleeveShirtObject), false);
-
-console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
-
-console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
-console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
+module.exports = eqObjects;
