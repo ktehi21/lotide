@@ -14,6 +14,7 @@ const countLetters = function (sentence) {
   let arr = [];
   let result = {};
   for (const index of sentence) {
+    // console.log(index);
     if (index !== " ") {
       arr.push(index);
     }

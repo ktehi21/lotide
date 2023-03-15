@@ -29,16 +29,16 @@ const data2 = ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Re
 
 const takeUntil = function(array, con1) {
   let result = [];
-  for(const index of array) {
+  for (const index of array) {
     // console.log("now index", index, index < 0);
     // console.log("con1", con1(index));
-    if(con1(index)) {
+    if (con1(index)) {
       return result;
     }
     result.push(index);
   }
-  return result
-}
+  return result;
+};
 
 const results1 = takeUntil(data1, x => x < 0);
 console.log(results1);

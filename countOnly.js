@@ -13,6 +13,7 @@ const assertEqual = function(actual, expected) {
 
 
 const countOnly = function(allItems, itemsToCount) {
+
   const result = {};
   for (const item of allItems) {
     // console.log("Before if item : ", item, "/ itemToCount[item] : ", itemsToCount[item]);

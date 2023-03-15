@@ -1,26 +1,26 @@
 
-const assertArraysEqual = function(actual, expected) {
-  let trueResult = `✅ Assertion Passed: ${actual}  == ${expected}`;
-  let falseResult = `🛑 Assertion Failed: ${actual} != ${expected}`;
-  if (actual == expected) {
-    console.log(trueResult);
-  } else {
-    console.log(falseResult);
-  }
-  return;
-};
+// const assertArraysEqual = function(actual, expected) {
+//   let trueResult = `✅ Assertion Passed: ${actual}  == ${expected}`;
+//   let falseResult = `🛑 Assertion Failed: ${actual} != ${expected}`;
+//   if (actual == expected) {
+//     console.log(trueResult);
+//   } else {
+//     console.log(falseResult);
+//   }
+//   return;
+// };
 
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length != arr2.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] != arr2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+// const eqArrays = function(arr1, arr2) {
+//   if (arr1.length != arr2.length) {
+//     return false;
+//   }
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr1[i] != arr2[i]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// };
 
 
 // console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
@@ -68,12 +68,14 @@ const middle = function(middleArr) {
   return console.log(middleArr);
 };
 
-middle([1]) // => []
-middle([1, 2]) // => []
-//// For arrays with odd number of elements, an array containing a single middle element should be returned.
-middle([1, 2, 3]) // => [2]
-middle([1, 2, 3, 4, 5]) // => [3]
-//// For arrays with an even number of elements, an array containing the two elements in the middle should be returned
-middle([1, 2, 3, 4]) // => [2, 3]
-middle([1, 2, 3, 4, 5, 6]) // => [3, 4]
-middle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]) // => [3, 4]
+module.exports = middle;
+
+// middle([1]) // => []
+// middle([1, 2]) // => []
+// //// For arrays with odd number of elements, an array containing a single middle element should be returned.
+// middle([1, 2, 3]) // => [2]
+// middle([1, 2, 3, 4, 5]) // => [3]
+// //// For arrays with an even number of elements, an array containing the two elements in the middle should be returned
+// middle([1, 2, 3, 4]) // => [2, 3]
+// middle([1, 2, 3, 4, 5, 6]) // => [3, 4]
+// middle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]) // => [6, 7]

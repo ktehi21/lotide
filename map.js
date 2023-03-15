@@ -8,10 +8,11 @@ const map = function(array, callback) {
 
   const results = [];
   for (let item of array) {
-
+    // console.log("item", item);
     const index = array.indexOf(item);
     console.log('item BEFORE: ', item);
     console.log('item AFTER: ', callback[index]);
+    // console.log('item AFTER: ', callback(item));
     console.log('---');
   }
   return results;
