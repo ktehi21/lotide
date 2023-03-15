@@ -7,11 +7,11 @@ const eqObjects = require('../eqObjects');
 const shirtObject = { color: "red", size: "medium" };
 const anotherShirtObject= { size: "medium", color: "red" };
 eqObjects(shirtObject , anotherShirtObject); // => true
-assertEquals(eqObjects(shirtObject , anotherShirtObject), true);
+assertEqual(eqObjects(shirtObject , anotherShirtObject), true);
 
 const longSleeveShirtObject= { size: "medium", color: "red", sleeveLength: "long" };
 eqObjects(shirtObject , longSleeveShirtObject); // => false
-assertEquals(eqObjects(shirtObject , longSleeveShirtObject), false);
+assertEqual(eqObjects(shirtObject , longSleeveShirtObject), false);
 
 console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
 

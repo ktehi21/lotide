@@ -1,18 +1,18 @@
 
-// const eqArrays = function(arr1, arr2) {
-//   // console.log("arr1.length: ", arr1.length);
-//   if (arr1.length !== arr2.length) {
-//     // console.log("length difference");
-//     return false;
-//   }
-//   for (let i = 0; i < arr1.length; i++) {
-//     if (arr1[i] !== arr2[i]) {
-//       // console.log("arr1[i]", arr1[i]);
-//       return false;
-//     }
-//   }
-//   return true;
-// };
+const eqArrays = function(arr1, arr2) {
+  // console.log("arr1.length: ", arr1.length);
+  if (arr1.length !== arr2.length) {
+    // console.log("length difference");
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      // console.log("arr1[i]", arr1[i]);
+      return false;
+    }
+  }
+  return true;
+};
 
 
 // const assertEquals = function(actual, expected) {
