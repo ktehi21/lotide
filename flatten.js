@@ -40,4 +40,4 @@ const flatten = (arr) => {
   return console.log(result);
 };
 
-module.exports = flatten;
+module.exports = flatten;  

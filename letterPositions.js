@@ -63,3 +63,4 @@ const letterPositions = function(sentence) {
 
 
 module.exports = letterPositions;
+  
