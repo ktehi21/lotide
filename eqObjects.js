@@ -28,41 +28,72 @@ const assertEquals = function(actual, expected) {
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
-let result = false;
+
+/*  
+  1. number of key compare : same - keep going, different - false
+  2. if key value are different - false
+    ㄴ key : value / obj1[key], obj2[key] 
+    obj 2-1. if obj1[key], obj2[key] are object ---> eqObject()
+  3. else key value are same - true
+*/
+
 const eqObjects = function(object1, object2) {
-    // console.log("Object.keys(object1)", Object.keys(object1).sort(), " /Object.keys(object2)",  Object.keys(object2).sort());
-    // console.log("eqArrays: ", eqArrays(Object.keys(object1), Object.keys(object2)));
-  // if (Object.keys(object1).sort().length != Object.keys(object2).sort().length) { result = false; console.log(result); return result}
   
   //// if keys are different return false
+  // console.log("eqArrays(Object.keys(object1).sort(): ", Object.keys(object1).sort(),  "/ eqArrays(Object.keys(object2).sort(): ", Object.keys(object2).sort());
   if (eqArrays(Object.keys(object1).sort(), Object.keys(object2).sort()) === false) { 
+    // console.log("false in eqArray level");
     return false;
   }
 
-
+  let result = true;
   // console.log("x: ",  "/ object2: ", object2.sort());
-  for (const x in object1) {
-    for (const y in object2) {
-      // console.log("y: ", y, "/ object2[y]: ", object2[y]);
-      
-      if (x == y) {
-        if (object1[x] == object2[y]) {
+  for (const key in object1) {
+    // console.log("y: ", y, "/ object2[y]: ", object2[y]);
+    // Array.isArray(object1);
 
-          result = true;
-        } else { result = false; return result; }
-      } 
+    //// added for array objects
+    // console.log("typeof object1[key]: ", typeof object1[key] );
+    const value1 = object1[key];
+    const value2 = object2[key];
+
+    if (typeof object1[key] === 'object' && typeof object2[key] === 'object') {
+      if(!eqObjects(value1, value2)) {
+        result = false;
+        return result;
+      }
+    } else if (value1 !== value2) {
+      result = false;
+      return result;
     }
+    
+    // original eqObjects
+    // if (key == y) {
+    //   if (object1[key] == object2[y]) {
+
+    //     result = true;
+    //   } else { 
+    //     result = false; 
+    //     // console.log("false in inside loop level"); 
+    //     return result; 
+    //   }
+    // } 
   }
   // console.log(result);
   return result;
 };
 
 // TEST CODE
-const shirtObject = { color: "red", size: "medium" };
-const anotherShirtObject= { size: "medium", color: "red" };
-eqObjects(shirtObject , anotherShirtObject); // => true
-assertEquals(eqObjects(shirtObject , anotherShirtObject), true);
+// const shirtObject = { color: "red", size: "medium" };
+// const anotherShirtObject= { size: "medium", color: "red" };
+// eqObjects(shirtObject , anotherShirtObject); // => true
+// assertEquals(eqObjects(shirtObject , anotherShirtObject), true);
 
-const longSleeveShirtObject= { size: "medium", color: "red", sleeveLength: "long" };
-eqObjects(shirtObject , longSleeveShirtObject); // => false
-assertEquals(eqObjects(shirtObject , longSleeveShirtObject), false);
+// const longSleeveShirtObject= { size: "medium", color: "red", sleeveLength: "long" };
+// eqObjects(shirtObject , longSleeveShirtObject); // => false
+// assertEquals(eqObjects(shirtObject , longSleeveShirtObject), false);
+
+console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
+
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
